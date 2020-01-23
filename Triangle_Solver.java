@@ -62,7 +62,7 @@ public class Triangle_Solver
 
       double c =
         Math.pow(Math.pow(a, 2) + Math.pow(b, 2)
-          - 2 * a * b * Math.cos(25 * (PI / 180)), 0.5);
+          - 2 * a * b * Math.cos(C * (PI / 180)), 0.5);
       double A = Math.asin(Math.sin(C * (PI / 180)) * a / c) * (180 / PI);
       double B = 180 - C - A;
 
