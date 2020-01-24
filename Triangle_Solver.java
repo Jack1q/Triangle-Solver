@@ -2,129 +2,98 @@ import java.util.*;
 
 /**
  * Triangle Solver 
- * Solves triangles given SSS, SAS, ASA, AAS, or SSA
  * 
  * @author Jack Donofrio
- * @version 1.0
+ * @version 1.1
  *
  */
-
 public class Triangle_Solver
 {
   public static void main(String[] args)
   {
-    final double PI = 3.14159265359;
     Scanner s = new Scanner(System.in);
+    final double PI = Math.PI;
 
-    System.out.println("What do you have?");
-    System.out.println("SSS (0)\nSAS (1)\nASA (2)\nAAS (3)\nSSA (4)");
-    int choice = s.nextInt();
+    System.out
+      .print("If a side/angle is unknown, hit enter\nEnter sides: \na= ");
+    String aStr = s.nextLine();
+    System.out.print("b= ");
+    String bStr = s.nextLine();
+    System.out.print("c= ");
+    String cStr = s.nextLine();
+    double a = 0;
+    double b = 0;
+    double c = 0;
 
-    if (choice == 0)
+    System.out.print("Enter angles: \nA= ");
+    String AStr = s.nextLine();
+    System.out.print("B= ");
+    String BStr = s.nextLine();
+    System.out.print("C= ");
+    String CStr = s.nextLine();
+    double A = 0;
+    double B = 0;
+    double C = 0;
+
+    if (!aStr.isEmpty() && !bStr.isEmpty() && !cStr.isEmpty())
     {
-      // test with: a = 8, b = 19, c = 14
-      System.out.println("Enter sides a, b, c");
-
-      System.out.println("a: ");
-      double a = s.nextDouble();
-      System.out.println("b: ");
-      double b = s.nextDouble();
-      System.out.println("c: ");
-      double c = s.nextDouble();
-
-      double A =
+      a = Double.parseDouble(aStr);
+      b = Double.parseDouble(bStr);
+      c = Double.parseDouble(cStr);
+      A =
         Math.acos( // acos = arcsin = sin^-1
           (Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c))
           * (180 / PI);
-      double B =
+      B =
         Math.acos(
           (Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c))
           * (180 / PI);
-      double C =
+      C =
         Math.acos( // acos = arcsin = sin^-1
           (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b))
           * (180 / PI);
-
-      System.out.println("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + A
-        + "\nB= " + B + "\nC= " + C);
     }
-    if (choice == 1)
+    if (!aStr.isEmpty() && !bStr.isEmpty() && !CStr.isEmpty())
     {
-      // test with a = 9, C = 25, b = 12
-      System.out.println("Enter side a, angle C, side b");
-
-      System.out.println("a: ");
-      double a = s.nextDouble();
-      System.out.println("C: ");
-      double C = s.nextDouble();
-      System.out.println("b: ");
-      double b = s.nextDouble();
-
-      double c =
+      a = Double.parseDouble(aStr);
+      b = Double.parseDouble(bStr);
+      C = Double.parseDouble(CStr);
+      c =
         Math.pow(Math.pow(a, 2) + Math.pow(b, 2)
           - 2 * a * b * Math.cos(C * (PI / 180)), 0.5);
-      double A = Math.asin(Math.sin(C * (PI / 180)) * a / c) * (180 / PI);
-      double B = 180 - C - A;
-
-      System.out.println("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + A
-        + "\nB= " + B + "\nC= " + C);
+      A = Math.asin(Math.sin(C * (PI / 180)) * a / c) * (180 / PI);
+      B = 180 - C - A;
     }
-    if (choice == 2)
+    if (!AStr.isEmpty() && !BStr.isEmpty() && !cStr.isEmpty())
     {
-      System.out.println("Enter angle A, side c, angle B");
-
-      System.out.println("A: ");
-      double A = s.nextDouble();
-      System.out.println("c: ");
-      double c = s.nextDouble();
-      System.out.println("B: ");
-      double B = s.nextDouble();
-
-      double C = 180 - A - B;
-      double a = c * Math.sin(A * (PI / 180)) / Math.sin(C * (PI / 180));
-      double b = a * Math.sin(B * (PI / 180)) / Math.sin(A * (PI / 180));
-
-      System.out.println("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + A
-        + "\nB= " + B + "\nC= " + C);
+      A = Double.parseDouble(AStr);
+      B = Double.parseDouble(BStr);
+      c = Double.parseDouble(cStr);
+      C = 180 - A - B;
+      a = c * Math.sin(A * (PI / 180)) / Math.sin(C * (PI / 180));
+      b = a * Math.sin(B * (PI / 180)) / Math.sin(A * (PI / 180));
     }
-    if (choice == 3)
+    if (!aStr.isEmpty() && !AStr.isEmpty() && !BStr.isEmpty())
     {
-      System.out.println("Enter angle A, angle B, side a");
-
-      System.out.println("A: ");
-      double A = s.nextDouble();
-      System.out.println("B: ");
-      double B = s.nextDouble();
-      System.out.println("a: ");
-      double a = s.nextDouble();
-
-      double C = 180 - A - B;
-      double b = a * Math.sin(B * (PI / 180)) / Math.sin(A * (PI / 180));
-      double c = a * Math.sin(C * (PI / 180)) / Math.sin(A * (PI / 180));
-
-      System.out.println("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + A
-        + "\nB= " + B + "\nC= " + C);
+      a = Double.parseDouble(aStr);
+      A = Double.parseDouble(AStr);
+      B = Double.parseDouble(BStr);
+      C = 180 - A - B;
+      b = a * Math.sin(B * (PI / 180)) / Math.sin(A * (PI / 180));
+      c = a * Math.sin(C * (PI / 180)) / Math.sin(A * (PI / 180));
     }
-    if (choice == 4)
+    if (!aStr.isEmpty() && !bStr.isEmpty() && !AStr.isEmpty())
     {
-      System.out.println("Enter side a, side b, angle A");
-
-      System.out.println("a: ");
-      double a = s.nextDouble();
-      System.out.println("b: ");
-      double b = s.nextDouble();
-      System.out.println("A: ");
-      double A = s.nextDouble();
-
+      a = Double.parseDouble(aStr);
+      b = Double.parseDouble(bStr);
+      A = Double.parseDouble(AStr);
       double height = b * Math.sin(A * (PI / 180));
-
       if (height == a || a >= b)
       {
         System.out.println("=============\nOne triangle: ");
-        double B = Math.asin(b * Math.sin(A * (PI / 180)) / a) * (180 / PI);
-        double C = 180 - A - B;
-        double c = a * Math.sin(C * (PI / 180)) / Math.sin(A * (PI / 180));
-
+        B = Math.asin(b * Math.sin(A * (PI / 180)) / a) * (180 / PI);
+        C = 180 - A - B;
+        c = a * Math.sin(C * (PI / 180)) / Math.sin(A * (PI / 180));
         System.out.println("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + A
           + "\nB= " + B + "\nC= " + C);
       }
@@ -148,6 +117,11 @@ public class Triangle_Solver
       }
       else if (a < height || a <= b)
         System.out.println("No triangles possible");
+    }
+    else
+    {
+      System.out.println("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + A
+        + "\nB= " + B + "\nC= " + C);
     }
   }
 }
