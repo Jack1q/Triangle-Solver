@@ -41,7 +41,7 @@ public class Triangle_Solver
       b = Double.parseDouble(bStr);
       c = Double.parseDouble(cStr);
       A =
-        Math.acos( // acos = arcsin = sin^-1
+        Math.acos( // acos = arccos = cos^-1
           (Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c))
           * (180 / PI);
       B =
@@ -49,7 +49,7 @@ public class Triangle_Solver
           (Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c))
           * (180 / PI);
       C =
-        Math.acos( // acos = arcsin = sin^-1
+        Math.acos( // acos = arccos = cos^-1
           (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b))
           * (180 / PI);
     }
