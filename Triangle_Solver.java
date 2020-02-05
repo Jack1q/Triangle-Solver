@@ -14,6 +14,15 @@ public class Triangle_Solver
     Scanner s = new Scanner(System.in);
     final double PI = Math.PI;
 
+    System.out.println("       A     ");
+    System.out.println("      /\\     ");
+    System.out.println("     /  \\    ");
+    System.out.println("  c /    \\ b    ");
+    System.out.println("   /      \\   ");
+    System.out.println("  /        \\  ");
+    System.out.println(" /__________\\");
+    System.out.println("B     a      C");
+    
     System.out
       .print("If a side/angle is unknown, hit enter\nEnter sides: \na= ");
     String aStr = s.nextLine();
