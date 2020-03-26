@@ -28,21 +28,26 @@ public class Tester
 
   public void tests()
   {
-    if (!aStr.isEmpty() && !bStr.isEmpty() && !cStr.isEmpty()) // done
+    if (!AStr.isEmpty() && !BStr.isEmpty() && !CStr.isEmpty()) // done
+    {
+      message = "No triangle is possible: Need side lengths.";
+    }
+
+    if (!aStr.isEmpty() && !bStr.isEmpty() && !cStr.isEmpty())
     {
       message =
         new SSS(Double.parseDouble(aStr), Double.parseDouble(bStr),
           Double.parseDouble(cStr)).toString();
     }
-    if (!aStr.isEmpty() && !CStr.isEmpty() && !bStr.isEmpty()) // SAS
+    if (!aStr.isEmpty() && !CStr.isEmpty() && !bStr.isEmpty())
     {
       a = Double.parseDouble(aStr);
       C = Double.parseDouble(CStr);
       b = Double.parseDouble(bStr);
       SAS test = new SAS(a, C, b);
-      message = // check over this
+      message =
         "a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + test.getAngle2()
-          + "\nB= " + test.getAngle3() + "\nC= " + C;
+          + "\nB= " + test.getAngle3() + "\nC= " + C + "\nSolved using SAS";
     }
 
     if (!bStr.isEmpty() && !AStr.isEmpty() && !cStr.isEmpty())
@@ -51,9 +56,10 @@ public class Tester
       A = Double.parseDouble(AStr);
       c = Double.parseDouble(cStr);
       SAS test = new SAS(b, A, c);
-      message = // check over this
+      message =
         "a= " + test.getSide3() + "\nb= " + b + "\nc= " + c + "\nA= " + A
-          + "\nB= " + test.getAngle2() + "\nC= " + test.getAngle3();
+          + "\nB= " + test.getAngle2() + "\nC= " + test.getAngle3()
+          + "\nSolved using SAS";
 
     }
 
@@ -65,7 +71,8 @@ public class Tester
       SAS test = new SAS(c, B, a);
       message = // check over this
         "a= " + a + "\nb= " + test.getSide3() + "\nc= " + c + "\nA= "
-          + test.getAngle3() + "\nB= " + B + "\nC= " + test.getAngle2();
+          + test.getAngle3() + "\nB= " + B + "\nC= " + test.getAngle2()
+          + "\nSolved using SAS";
 
     }
 
@@ -77,7 +84,8 @@ public class Tester
       ASA test = new ASA(A, c, B);
       message =
         "a= " + test.getSide2() + "\nb= " + test.getSide3() + "\nc= " + c
-          + "\nA= " + A + "\nB= " + B + "\nC= " + test.getSide3();
+          + "\nA= " + A + "\nB= " + B + "\nC= " + test.getSide3()
+          + "\nSolved using ASA";
     }
 
     if (!BStr.isEmpty() && !aStr.isEmpty() && !CStr.isEmpty())
@@ -88,7 +96,8 @@ public class Tester
       ASA test = new ASA(B, a, C);
       message =
         "a= " + a + "\nb= " + test.getSide2() + "\nc= " + test.getSide3()
-          + "\nA= " + test.getAngle3() + "\nB= " + B + "\nC= " + C;
+          + "\nA= " + test.getAngle3() + "\nB= " + B + "\nC= " + C
+          + "\nSolved using ASA";
     }
 
     if (!CStr.isEmpty() && !bStr.isEmpty() && !AStr.isEmpty())
@@ -99,7 +108,8 @@ public class Tester
       ASA test = new ASA(C, b, A);
       message =
         "a = " + test.getSide3() + "\nb= " + b + "\nc= " + test.getSide3()
-          + "\nA= " + A + "\nB= " + test.getAngle3() + "\nC= " + C;
+          + "\nA= " + A + "\nB= " + test.getAngle3() + "\nC= " + C
+          + "\nSolved using ASA";
     }
 
     if (!AStr.isEmpty() && !BStr.isEmpty() && !aStr.isEmpty()) // AAS
@@ -110,7 +120,8 @@ public class Tester
       AAS test = new AAS(A, B, a);
       message =
         "a= " + a + "\nb= " + test.getSide2() + "\nc= " + test.getSide3()
-          + "\nA= " + A + "\nB= " + B + "\nC= " + test.getAngle3();
+          + "\nA= " + A + "\nB= " + B + "\nC= " + test.getAngle3()
+          + "\nSolved using AAS";
     }
 
     if (!BStr.isEmpty() && !CStr.isEmpty() && !bStr.isEmpty())
@@ -121,7 +132,8 @@ public class Tester
       AAS test = new AAS(B, C, b);
       message =
         "a= " + test.getSide3() + "\nb= " + b + "\nc= " + test.getSide2()
-          + "\nA= " + test.getAngle3() + "\nB= " + B + "\nC= " + C;
+          + "\nA= " + test.getAngle3() + "\nB= " + B + "\nC= " + C
+          + "\nSolved using AAS";
     }
 
     if (!CStr.isEmpty() && !AStr.isEmpty() && !cStr.isEmpty())
@@ -132,7 +144,8 @@ public class Tester
       AAS test = new AAS(C, A, c);
       message =
         "a= " + test.getSide2() + "\nb= " + test.getSide3() + "\nc= " + c
-          + "\nA= " + A + "\nB= " + test.getAngle3() + "\nC= " + C;
+          + "\nA= " + A + "\nB= " + test.getAngle3() + "\nC= " + C
+          + "\nSolved using AAS";
     }
 
     if (!aStr.isEmpty() && !bStr.isEmpty() && !AStr.isEmpty())
@@ -145,7 +158,8 @@ public class Tester
       {
         message =
           "a= " + a + "\nb= " + b + "\nc= " + test.getSide3a() + "\nA= " + A
-            + "\nB= " + test.getAngle2a() + "\nC= " + test.getAngle3a();
+            + "\nB= " + test.getAngle2a() + "\nC= " + test.getAngle3a()
+            + "\nSolved using the Ambiguous Case";
       }
       else if (test.getNumberOfTriangles() == 2)
       {
@@ -154,10 +168,11 @@ public class Tester
             + "\nA= " + A + "\nB= " + test.getAngle2a() + "\nC= "
             + test.getAngle3a() + "\nTriangle#2\na= " + a + "\nb= " + b
             + "\nc= " + test.getSide3b() + "\nA= " + A + "\nB= "
-            + test.getAngle2b() + "\nC= " + test.getAngle3b();
+            + test.getAngle2b() + "\nC= " + test.getAngle3b()
+            + "\nSolved using the Ambiguous Case";
       }
       else
-        message = "No triangles possible";
+        message = "No triangles possible: The Ambiguous Case";
     }
 
     if (!bStr.isEmpty() && !cStr.isEmpty() && !BStr.isEmpty())
@@ -170,7 +185,8 @@ public class Tester
       {
         message =
           "a= " + test.getSide3a() + "\nb= " + b + "\nc= " + c + "\nA= "
-            + test.getAngle3a() + "\nB= " + B + "\nC= " + test.getAngle2a();
+            + test.getAngle3a() + "\nB= " + B + "\nC= " + test.getAngle2a()
+            + "\nSolved using the Ambiguous Case";
       }
       else if (test.getNumberOfTriangles() == 2)
       {
@@ -179,10 +195,11 @@ public class Tester
             + "\nA= " + test.getAngle3a() + "\nB= " + B + "\nC= "
             + test.getAngle2a() + "\nTriangle#2\na= " + test.getSide3b()
             + "\nb= " + b + "\nc= " + c + "\nA= " + test.getAngle3b() + "\nB= "
-            + B + "\nC= " + test.getAngle2b();
+            + B + "\nC= " + test.getAngle2b()
+            + "\nSolved using the Ambiguous Case";
       }
       else
-        message = "No triangles possible";
+        message = "No triangle possible: The Ambiguous Case";
     }
     if (!cStr.isEmpty() && !aStr.isEmpty() && !CStr.isEmpty())
     {
@@ -194,7 +211,8 @@ public class Tester
       {
         message =
           "a= " + a + "\nb= " + test.getSide3a() + "\nc= " + c + "\nA= "
-            + test.getAngle2a() + "\nB= " + test.getAngle3a() + "\nC= " + C;
+            + test.getAngle2a() + "\nB= " + test.getAngle3a() + "\nC= " + C
+            + "\nSolved using the Ambiguous Case";
       }
       else if (test.getNumberOfTriangles() == 2)
       {
@@ -203,16 +221,22 @@ public class Tester
             + "\nA= " + test.getAngle2a() + "\nB= " + test.getAngle3a()
             + "\nC= " + C + "\nTriangle#2\na= " + a + "\nb= " + test.getSide3b()
             + "\nc= " + c + "\nA= " + test.getAngle2b() + "\nB= "
-            + test.getAngle3b() + "\nC= " + C;
+            + test.getAngle3b() + "\nC= " + C
+            + "\nSolved using the Ambiguous Case";
       }
       else
-        message = "No triangles possible";
+        message = "No triangles possible: The Ambiguous Case";
     }
+
   }
 
-  public String getMessage()
+  public String toString()
   {
     tests();
+    if (message.contains("NaN"))
+    {
+      return "No Triangle is possible: One side is greater than or equal to the sum of the other two.";
+    }
     return message;
   }
 

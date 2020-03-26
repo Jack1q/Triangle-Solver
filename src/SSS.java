@@ -36,6 +36,6 @@ public class SSS
   public String toString()
   {
     return ("a= " + a + "\nb= " + b + "\nc= " + c + "\nA= " + getA() + "\nB= "
-      + getB() + "\nC= " + getC());
+      + getB() + "\nC= " + getC()) + "\nSolved using SSS";
   }
 }
